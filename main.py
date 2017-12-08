@@ -5,16 +5,16 @@ app = Flask(__name__)
 def hello_world():
   return 'Hello, World!'
 
-@api.route('/inference/<string:path>', methods=['GET'])
+@app.route('/inference/<string:path>', methods=['GET'])
 def inference(path):
-  # „˜_ˆ—
-  # ‰¼Œ‹‰Ê
+  #æ¨è«–å‡¦ç†
+  # ä»®çµæœ
   result = {
         "result":True,
         "data":{
-            "hana1":"÷",
-            "hana2":"”~",
-            "hana3":"‚Ğ‚Ü‚í‚è"
+            "hana1":"æ¡œ",
+            "hana2":"æ¢…",
+            "hana3":"ã²ã¾ã‚ã‚Š"
             }
         }
   return make_response(json.dumps(result, ensure_ascii=False))
