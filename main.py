@@ -6,10 +6,10 @@ app = Flask(__name__)
 def hello_world():
   return 'Hello, World!'
 
-@app.route('/inference/<string:path>', methods=['GET'])
-def inference(path):
+@app.route('/inference', methods=['GET'])
+def inference():
   #推論処理
-  # 仮結果
+  #仮結果
   result = {
         "result":True,
         "data":{
