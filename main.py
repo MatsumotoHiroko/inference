@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, abort, make_response
 import json
 import sys
+import cntk
 app = Flask(__name__)
 
 @app.route('/')
@@ -21,6 +22,7 @@ def hello_world():
 
 @app.route('/inference', methods=['POST'])
 def inference_binary():
+  return 'coming soon'
 
 if __name__ == '__main__':
   app.run()
