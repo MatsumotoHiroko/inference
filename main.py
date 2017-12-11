@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, abort, make_response
 import json
 import sys
-#import cntk
+import cntk
 app = Flask(__name__)
 
 @app.route('/')
@@ -17,6 +17,7 @@ def inference():
             "hana2":"梅",
             "hana3":"ひまわり"
             }
+         "cntk version": cntk.__version__
         }
   return make_response(json.dumps(result, ensure_ascii=False))
 
