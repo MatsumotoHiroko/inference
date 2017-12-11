@@ -19,5 +19,8 @@ def hello_world():
 #        }
 #  return make_response(json.dumps(result, ensure_ascii=False))
 
+@app.route('/inference', methods=['POST'])
+def inference_binary():
+
 if __name__ == '__main__':
   app.run()
