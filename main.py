@@ -16,7 +16,7 @@ def inference():
             "hana1":"桜",
             "hana2":"梅",
             "hana3":"ひまわり"
-            }
+            },
          "cntk version": cntk.__version__
         }
   return make_response(json.dumps(result, ensure_ascii=False))
