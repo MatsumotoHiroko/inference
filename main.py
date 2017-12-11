@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, abort, make_response
 import json
 import sys
-import cntk
+#import cntk
 app = Flask(__name__)
 
 @app.route('/')
