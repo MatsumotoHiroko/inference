@@ -13,7 +13,7 @@ Azure API APPS にデプロイする時に仮想環境とライブラリをイ�
 
 ##  requirements.txt
 必要なライブラリを記載する。
-.skipPythonDeploymentない場合、デプロイするときにAzure側がこのファイルを参照しライブラリをインストールしてくれます。
+.skipPythonDeploymentない場合、デプロイするときにAzure側がこのファイルを参照しライブラリをインストールしてくれる。
 
 ##  web.config
 設定
