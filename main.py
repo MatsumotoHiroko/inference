@@ -44,6 +44,7 @@ def blob():
     account_name = 'hanastragetest'
     account_key = 'acount_key'
     container_name = 'images'
+    container_url = "https://hanastragetest.blob.core.windows.net/" + container_name
 
     block_blob_service = BlockBlobService(account_name=account_name, account_key=account_key)
     app.logger.info("test message : {}".format(block_blob_service))
@@ -68,10 +69,11 @@ def blob():
 
     # get container
     generator = block_blob_service.list_blobs(container_name)
+    html = ""
     for blob in generator:
         app.logger.info("generator : {}".format(blob.name))
+        html = "{}<img src='{}/{}'>".format(html, container_url, blob.name)
     #app.logger.info("generator_object : {}".format(generator))
-
 
     result = {
             "result":True,
@@ -79,7 +81,7 @@ def blob():
                 "blob_name": [blob.name for blob in generator]
                 }
             }
-    return make_response(json.dumps(result, ensure_ascii=False))
+    return make_response(json.dumps(result, ensure_ascii=False) + html)
 
 if __name__ == '__main__':
   app.run()
