@@ -41,21 +41,26 @@ def blob():
     block_blob_service = BlockBlobService(account_name='hanastragetest', account_key='acount_key')
     app.logger.info("test message : {}".format(block_blob_service))
     # container create
-    block_blob_service.create_container('mycontainer')
-    block_blob_service.set_container_acl('mycontainer', public_access=PublicAccess.Container)
+    block_blob_service.create_container('images')
+    block_blob_service.set_container_acl('images', public_access=PublicAccess.Container)
     #app.logger.info("finish : block_blob_service.set_container_acl")
 
+    # delete
+    block_blob_service.delete_blob('images', 'sunflower.png')
+    
+    # blob write
+    block_blob_service.create_blob_from_path(
+        'images',
+        'sunflower.png',
+        'D:\home\site\wwwroot\static\sunflower.png',
+        content_settings=ContentSettings(content_type='image/png')
+                )
+
     # get container
-    generator = block_blob_service.list_blobs('mycontainer')
+    generator = block_blob_service.list_blobs('images')
     for blob in generator:
         app.logger.info("generator : {}".format(blob.name))
     #app.logger.info("generator_object : {}".format(generator))
-    block_blob_service.create_blob_from_path(
-        'mycontainer',
-        'myblockblob',
-        'static/sunset.png',
-        content_settings=ContentSettings(content_type='image/png')
-                )
 
 
     result = {
